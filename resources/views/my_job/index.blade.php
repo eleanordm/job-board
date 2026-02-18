@@ -27,6 +27,10 @@
                 @empty
                     <div>No applications yet</div>
                 @endforelse
+
+                <div class="flex space-x-2">
+                    <x-link-button href="{{ route('my-jobs.edit', $job) }}">Edit</x-link-button>
+                </div>
             </div>
         </x-job-card>
 
@@ -36,7 +40,8 @@
                 No jobs yet
             </div>
             <div class="text-center">
-                Post your first job <a class="text-indigo-500 hover:underline" href="{{ route('my-jobs.create') }}">here!
+                Post your first job <a class="text-indigo-500 hover:underline"
+                    href="{{ route('my-jobs.create') }}">here!
                 </a>
             </div>
         </div>
