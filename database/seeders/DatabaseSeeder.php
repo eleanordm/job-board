@@ -15,29 +15,29 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        User::factory()->create([
+            'name' => 'Eleanor',
+            'email' => 'eleanor@udemy.com',
+        ]);
+
         \App\Models\User::factory(300)->create();
 
         $users = \App\Models\User::all()->shuffle();
 
-       for ($i = 0; $i < 20; $i++) {
+        for ($i = 0; $i < 20; $i++) {
             \App\Models\Employer::factory()->create([
                 'user_id' => $users->pop()->id
             ]);
-       }
+        }
 
         $employers = \App\Models\Employer::all();
 
-        for($i = 0; $i < 100; $i++) {
+        for ($i = 0; $i < 100; $i++) {
             \App\Models\Job::factory()->create([
                 'employer_id' => $employers->random()->id
             ]);
         }
 
-       // User::factory(10)->create();
-
-        // User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        // User::factory(10)->create();
     }
 }
